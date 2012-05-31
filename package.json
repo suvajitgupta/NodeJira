@@ -1,0 +1,29 @@
+{
+    "name": "NodeJira"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+
+      "express": "= 2.5.8"
+    , "coffee-script": ">= 1.2.0"
+    , "jade": "= 0.21.0"
+    , "stylus": ">= 0.24.0"
+    , "connect-assets": ">= 2.1.8"
+
+    , "commander": ">= 0.5.2"
+	  , "b64": ">= 1.0.1"
+
+    , "mocha": ">= 0.13.0"
+    , "request": ">= 2.9.152"
+    , "should": ">= 0.5.1"
+    , "mockery": "*"
+
+  },
+    "bin": {
+      "nodejira": "bin/nodejia"
+  },
+    "scripts": {
+      "start": "coffee server.coffee",
+      "test": "./node_modules/mocha/bin/mocha"
+  }
+}

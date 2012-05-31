@@ -1,0 +1,10 @@
+-var defaultOptions = {type: 'text'};
+
+mixin text_control(id, label, value, options)
+  -if(!options){ options = defaultOptions; }else{ for(var key in defaultOptions){ if(!options[key]){ options[key] = defaultOptions[key]; } } }
+  .control-group
+    label.control-label(for=id)= label
+    .controls
+      input(type=options.type, id=id, name=id, value=value, class=options.readonly ? null : 'required', readonly=options.readonly)
+      if options.help
+        p.help-block= options.help

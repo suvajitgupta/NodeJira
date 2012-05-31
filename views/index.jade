@@ -1,0 +1,21 @@
+!!! 5
+html
+  include mixins/text_control
+
+  head
+    title= title
+    != css('app')
+
+  body
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/")
+            span #{title}
+
+    form#jira_form.form-horizontal.container(method="post")
+      mixin text_control("id", "Id", null, {help: 'Enter Jira issue key'})
+      button.btn-primary#get_details Details
+
+    != js('app')
