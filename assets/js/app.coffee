@@ -4,6 +4,6 @@
 
 $ ->
   $("#id").focus()
-  $("#jira-form").validate()
+  $("#login-form").validate()
   $("#login").click window.login
   

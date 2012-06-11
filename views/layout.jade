@@ -1,0 +1,20 @@
+!!! 5
+html(lang='en')
+  include mixins/text_control
+  
+  head
+    title= title
+    block styles
+      != css('app')
+
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/")
+            span #{title}
+    #content(class='container')
+      block content
+
+  block scripts
+    != js('app')

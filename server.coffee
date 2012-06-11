@@ -18,7 +18,7 @@ app.use express.static "#{__dirname}/public"
 
 # setup defaults
 app.helpers
-  title: "NodeJira Beta"
+  title: "NodeJira Console"
 
 # setup routes
 app.get  '/', routes.index_get   # login dialog
