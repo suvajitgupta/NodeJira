@@ -1,9 +1,9 @@
 #= require 'lib/jquery.min.js'
 #= require 'lib/jquery.validate.min.js'
-#= require 'get_details.coffee'
+#= require 'login.coffee'
 
 $ ->
   $("#id").focus()
-  $("#jira_form").validate()
-  $("#get_details").click window.get_details
+  $("#jira-form").validate()
+  $("#login").click window.login
   

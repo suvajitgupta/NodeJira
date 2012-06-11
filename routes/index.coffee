@@ -4,13 +4,12 @@ module.exports =
   
   # renders GUI
   index_get: (req, res, next) ->
-    console.log "Launching NodeJira GUI"
+    console.log "Launching NodeJira Login Dialog"
     res.render 'index'
     
   # pull data from Jira
   index_post: (req, res, next) ->
-    console.log "Getting details for id: #{req.body.id}"
-    jira_api.get_details req.body.id, (err, body)->
+    jira_api.login req.body.username, req.body.password, (err, body)->
       if err?
         console.log err
       else

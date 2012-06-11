@@ -14,8 +14,9 @@ html
           a.brand(href="/")
             span #{title}
 
-    form#jira_form.form-horizontal.container(method="post")
-      mixin text_control("id", "Id", null, {help: 'Enter Jira issue key'})
-      button.btn-primary#get_details Details
+    form#jira-form.form-horizontal.container(method="post")
+      mixin text_control("username", "Username", null)
+      mixin text_control("password", "Password", null, {type: 'password'})
+      button.btn-primary#login Login
 
     != js('app')

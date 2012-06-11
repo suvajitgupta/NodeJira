@@ -2,13 +2,13 @@ CONFIG = require './config'
 request = require 'request'
 
 module.exports =
-  get_details: (id, cb)->
+  login: (username, password, cb)->
     request_options =
       url: CONFIG.authentication_url
       method: 'POST'
       body:
-        username: CONFIG.username
-        password: CONFIG.password
+        username: username
+        password: password
       json: true
       jar: false
     console.log request_options

@@ -21,8 +21,8 @@ app.helpers
   title: "NodeJira Beta"
 
 # setup routes
-app.get  '/', routes.index_get   # renders GUI
-app.post '/', routes.index_post  # pull data from Jira 
+app.get  '/', routes.index_get   # login dialog
+app.post '/login', routes.index_post  # login to Jira 
 
 # start server
 app.listen port, -> console.log "Listening @ http://0.0.0.0:#{port}"
