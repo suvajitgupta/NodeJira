@@ -6,4 +6,5 @@ $ ->
   $("#id").focus()
   $("#login-form").validate()
   $("#login").click window.login
+  $("#get-details").click window.get_details
   

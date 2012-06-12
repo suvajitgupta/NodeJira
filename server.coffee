@@ -21,8 +21,9 @@ app.helpers
   title: "NodeJira Console"
 
 # setup routes
-app.get  '/', routes.index_get   # login dialog
-app.post '/login', routes.index_post  # login to Jira 
+app.get  '/', routes.show_login_dialog
+app.post '/login', routes.authenticate
+app.post '/details', routes.get_details
 
 # start server
 app.listen port, -> console.log "Listening @ http://0.0.0.0:#{port}"
