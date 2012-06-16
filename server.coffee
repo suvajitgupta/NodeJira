@@ -20,10 +20,19 @@ app.use express.static "#{__dirname}/public"
 app.helpers
   title: "NodeJira Console"
 
+middleware =
+  must_be_logged_in: (req, res, next) ->
+    if req.session.is_logged_in
+      next()
+    else
+      res.redirect '/' # login page
+
 # setup routes
 app.get  '/', routes.show_login_dialog
 app.post '/login', routes.authenticate
-app.post '/details', routes.get_details
-
+app.get  '/issue', middleware.must_be_logged_in, routes.show_issue_dialog
+app.post '/details', middleware.must_be_logged_in, routes.get_issue_details
+app.get  '/logout', routes.logout
+  
 # start server
 app.listen port, -> console.log "Listening @ http://0.0.0.0:#{port}"

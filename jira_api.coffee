@@ -2,7 +2,8 @@ CONFIG = require './config'
 request = require 'request'
 
 module.exports =
-  login: (username, password, cb)->
+  
+  authenticate: (username, password, cb)->
     request_options =
       url: CONFIG.authentication_url
       method: 'POST'
@@ -20,3 +21,7 @@ module.exports =
             cb code: response.statusCode, msg: body, null
           else
             cb null, body
+
+  get_issue_details: (id, cb)->
+    console.log id
+    cb null, "Details of Issue ##{id}"
