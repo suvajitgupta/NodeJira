@@ -23,6 +23,7 @@ module.exports =
     jira_api.get_issue_details req.body.id, (err, body)->
       if err?
         console.log err
+        res.render 'issue', error: err.msg.errorMessages[0]
       else
         console.log body
         res.render 'details'

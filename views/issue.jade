@@ -7,4 +7,6 @@ block content
     form#issue-form.form-horizontal.container(method="post", action="/details")
       mixin text_control("id", "Id", null)
       .controls
+        - if(typeof(error) != 'undefined')
+          p.error #{error}
         button.btn-primary#get-details Get Details

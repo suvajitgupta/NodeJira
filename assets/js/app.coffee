@@ -3,5 +3,7 @@
 
 $ ->
   $("#id").focus()
+  $('#id').keydown (e) ->
+    $('p.error').text ''
   $("#login-form").validate()
   
