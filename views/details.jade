@@ -4,4 +4,15 @@ block content
   div.page-header
     h1.header Jira Issue Details
   div.row
-    p Details go here...
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Value
+      each field in details.fields
+        tr
+          td= field.name
+          if typeof(field.value) === 'string'
+            td= field.value
+          else
+            td= "ABE TO FIX"

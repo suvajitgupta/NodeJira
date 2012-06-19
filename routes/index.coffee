@@ -20,13 +20,13 @@ module.exports =
     res.render 'issue'
 
   get_issue_details: (req, res, next) ->
-    jira_api.get_issue_details req.body.id, (err, body)->
+    jira_api.get_issue_details req.body.id, (err, details)->
       if err?
         console.log err
         res.render 'issue', error: err.msg.errorMessages[0]
       else
-        console.log body
-        res.render 'details'
+        console.log JSON.stringify details
+        res.render 'details', { details }
 
   logout: (req, res, next) ->
     req.session.is_logged_in = false

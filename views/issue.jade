@@ -5,7 +5,7 @@ block content
     h1.header Jira Issue
   div.row
     form#issue-form.form-horizontal.container(method="post", action="/details")
-      mixin text_control("id", "Id", null)
+      mixin text_control("id", "Id", "OEP-1234")
       .controls
         - if(typeof(error) != 'undefined')
           p.error #{error}
