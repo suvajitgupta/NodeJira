@@ -2,7 +2,7 @@ extends layout
 
 block content
   div.page-header
-    h1.header Jira Issue Details
+    h1.header a(href="#{details.self}", rel='popover') #{details.key} Details
   div.row
     table.table.table-striped
       thead
@@ -12,7 +12,19 @@ block content
       each field in details.fields
         tr
           td= field.name
-          if typeof(field.value) === 'string'
+          if typeof field.value === 'string'
             td= field.value
           else
-            td= "ABE TO FIX"
+            if field.value instanceof Array
+              if field.value.length
+                td= field.value[0].value
+              else
+                td None
+            else
+              if field.value && field.value.hasOwnProperty('value')
+                td= field.value.value
+              else
+                if field.value && field.value.hasOwnProperty('name')
+                  td= field.value.name
+                else
+                  td
