@@ -2,7 +2,8 @@ extends layout
 
 block content
   div.page-header
-    h1.header a(href="#{details.self}", rel='popover') #{details.key} Details
+    h1.header #{details.key} Details
+    a(href="https://jira.eloquacorp.com/browse/#{details.key}", rel='popover') Open in Jira
   div.row
     table.table.table-striped
       thead
