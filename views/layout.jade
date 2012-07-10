@@ -13,7 +13,7 @@ html(lang='en')
         .container
           a.brand(href="/issue")
             span #{title}
-          a.brand(href="/logout")
+          a.brand.nav.pull-right(href="/logout") 
             span Logout
     #content(class='container')
       block content

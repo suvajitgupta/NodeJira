@@ -29,6 +29,7 @@ module.exports =
         res.render 'details', { details }
 
   get_issue_list: (req, res, next) ->
+    console.log req
     jira_api.get_issue_list req.body.id, (err, list) ->
       if err?
         console.log err
