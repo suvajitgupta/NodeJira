@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div.page-header
+    h1.header List of the #{list.total} Issues matching your Query
+  div.row
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Value
+      each issue in list.issues
+        tr
+          td= issue.key

@@ -28,6 +28,15 @@ module.exports =
         console.log JSON.stringify details
         res.render 'details', { details }
 
+  get_issue_list: (req, res, next) ->
+    jira_api.get_issue_list req.body.id, (err, list) ->
+      if err?
+        console.log err
+        res.render 'issuelist', error: err.msg.errorMessages[0]
+      else
+        console.log JSON.stringify list
+        res.render 'issuelist', { list }
+
   logout: (req, res, next) ->
     req.session.is_logged_in = false
     res.redirect '/' # login page

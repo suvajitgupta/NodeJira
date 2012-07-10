@@ -6,4 +6,15 @@ $ ->
   $('#id').keydown (e) ->
     $('p.error').text ''
   $("#login-form").validate()
-  
+  $("#key_search_tab").click ->
+    $("#issue-form").css("display", "inline-block")
+    $("#jql-form").css("display", "none")
+    $("#builder-form").css("display", "none")
+  $("#jql_tab").click ->
+    $("#issue-form").css("display", "none")
+    $("#jql-form").css("display", "inline-block")
+    $("#builder-form").css("display", "none")
+  $("#builder_tab").click ->
+    $("#issue-form").css("display", "none")
+    $("#jql-form").css("display", "none")
+    $("#builder-form").css("display", "inline-block")
