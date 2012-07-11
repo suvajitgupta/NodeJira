@@ -23,9 +23,10 @@ module.exports =
             if response.headers['set-cookie']
               this.cookies = response.headers['set-cookie']
 
-  get_issue_details: (id, cb)->
+  get_issue_details: (key, cb)->
+    console.log key
     request_options =
-      url: CONFIG.content_url+"/issue/"+id
+      url: CONFIG.content_url+"/issue/"+key
       method: 'GET'
       headers:
         Cookie: this.cookies.join ";"
@@ -40,9 +41,10 @@ module.exports =
           else
             cb null, body
 
-  get_issue_list: (query, cb)->
+  get_issue_list: (jql, cb)->
+    console.log jql
     request_options =
-      url: CONFIG.content_url+"/search?jql="+query
+      url: CONFIG.content_url+"/search?jql="+jql
       method: 'GET'
       headers:
         Cookie: this.cookies.join ";"

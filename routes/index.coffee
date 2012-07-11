@@ -8,7 +8,8 @@ module.exports =
   authenticate: (req, res, next) ->
     jira_api.authenticate req.body.username, req.body.password, (err, body)->
       if err?
-        res.render 'login', error: 'Invalid username or password.'
+        console.log err
+        res.render 'login', error: 'Invalid username or password'
       else
         req.session.is_logged_in = true
         res.redirect '/search'
