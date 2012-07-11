@@ -18,3 +18,5 @@ $ ->
     $("#issue-form").css("display", "none")
     $("#jql-form").css("display", "none")
     $("#builder-form").css("display", "inline-block")
+  $(".list-item-view").click ->
+    this.getElementsByTagName('form')[0].submit()

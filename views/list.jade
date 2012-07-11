@@ -5,10 +5,9 @@ block content
     h1.header List of the #{list.total} Issues matching your Query
   div.row
     table.table.table-striped
-      thead
-        tr
-          th Name
-          th Value
       each issue in list.issues
-        tr
-          td= issue.key
+        tr.list-item-view
+          td
+            #{issue.key}
+            form.form(method="post", action="/details")
+              mixin text_control("key", "Key", issue.key)
