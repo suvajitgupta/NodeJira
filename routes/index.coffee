@@ -34,7 +34,7 @@ module.exports =
   logout: (req, res, next) ->
     jira_api.logout (err, messsage) ->
       if err?
-        res.render '/', error: err.msg.errorMessages[0]
+        res.render 'login', error: err.msg.errorMessages[0]
       else
         req.session.is_logged_in = false
         res.redirect '/'
