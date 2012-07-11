@@ -24,7 +24,6 @@ module.exports =
               this.cookies = response.headers['set-cookie']
 
   get_issue_details: (key, cb)->
-    console.log key
     request_options =
       url: CONFIG.content_url+"/issue/"+key
       method: 'GET'
@@ -42,7 +41,6 @@ module.exports =
             cb null, body
 
   get_issue_list: (jql, cb)->
-    console.log jql
     request_options =
       url: CONFIG.content_url+"/search?jql="+jql
       method: 'GET'

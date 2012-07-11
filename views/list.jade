@@ -4,10 +4,10 @@ block content
   div.page-header
     h1.header List of the #{list.total} Issues matching your Query
   div.row
+    form.invisible-issue-form(method="post", action="/details")
+      mixin text_control("key", "Key", "placeholder")
     table.table.table-striped
       each issue in list.issues
         tr.list-item-view
           td
             #{issue.key}
-            form.form(method="post", action="/details")
-              mixin text_control("key", "Key", issue.key)

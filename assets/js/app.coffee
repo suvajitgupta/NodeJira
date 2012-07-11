@@ -19,4 +19,6 @@ $ ->
     $("#jql-form").css("display", "none")
     $("#builder-form").css("display", "inline-block")
   $(".list-item-view").click ->
-    this.getElementsByTagName('form')[0].submit()
+    value = this.getElementsByTagName('td')[0].innerHTML
+    $(".invisible-issue-form #key").val(value)
+    $(".invisible-issue-form").submit()
