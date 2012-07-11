@@ -28,14 +28,14 @@ module.exports =
         res.render 'details', { details }
 
   get_issue_list: (req, res, next) ->
-    console.log "get_issue_list: #{req.body.id}"
-    jira_api.get_issue_list req.body.id, (err, list) ->
+    console.log "get_issue_list: #{req.body.jql}"
+    jira_api.get_issue_list req.body.jql, (err, list) ->
       if err?
         console.log err
-        res.render 'issuelist', error: err.msg.errorMessages[0]
+        res.render 'list', error: err.msg.errorMessages[0]
       else
         console.log JSON.stringify list
-        res.render 'issuelist', { list }
+        res.render 'list', { list }
 
   logout: (req, res, next) ->
     req.session.is_logged_in = false

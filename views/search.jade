@@ -22,11 +22,11 @@ block content
           p.error #{error}
         button.btn-primary#get-details Get Details
 
-    form#jql-form.form-horizontal.container(method="get", action="/issuelist")
+    form#jql-form.form-horizontal.container(method="post", action="/list")
       mixin text_control("jql", "Query", "Project=test", {type: 'textarea', rows: 5, cols: 50})
       .controls
         - if(typeof(error) != 'undefined')
           p.error #{error}
         button.btn-primary#get-issues Get Issues
 
-    form#query-builder.form-horizontal.container(method="get", action="/issuelist")
+    form#query-builder.form-horizontal.container(method="post", action="/list")

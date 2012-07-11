@@ -32,8 +32,8 @@ app.get  '/', routes.show_login_dialog
 app.post '/login', routes.authenticate
 app.get  '/search', middleware.must_be_logged_in, routes.show_search_dialog
 app.post '/details', middleware.must_be_logged_in, routes.get_issue_details
+app.post  '/list', middleware.must_be_logged_in, routes.get_issue_list
 app.get  '/logout', middleware.must_be_logged_in, routes.logout
-app.get  '/issuelist', middleware.must_be_logged_in, routes.get_issue_list
-  
+
 # start server
 app.listen port, -> console.log "Listening @ http://0.0.0.0:#{port}"
