@@ -2,31 +2,28 @@ extends layout
 
 block content
   div.page-header
-    h1.header Jira Issue
+    h1.header Jira Search
   br
   br
   br
   div.row
     ul
-      li#key_search_tab
-        "Issue Key Search"
-      li#jql_tab
-        "JQL"
-      li#builder_tab
-        "Query Builder"
+      li#key_search_tab Key
+      li#jql_tab JQL
+      li#builder_tab Query Builder
   br
   br
   br
   div.row
     form#issue-form.form-horizontal.container(method="post", action="/details")
-      mixin text_control("id", "Id", "OEP-1234")
+      mixin text_control("key", "Key", "OEP-1234")
       .controls
         - if(typeof(error) != 'undefined')
           p.error #{error}
         button.btn-primary#get-details Get Details
 
     form#jql-form.form-horizontal.container(method="get", action="/issuelist")
-      mixin text_control("jql", "Query", "Project=test")
+      mixin text_control("jql", "Query", "Project=test", {type: 'textarea', rows: 5, cols: 50})
       .controls
         - if(typeof(error) != 'undefined')
           p.error #{error}

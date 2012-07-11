@@ -5,6 +5,9 @@ mixin text_control(id, label, value, options)
   .control-group
     label.control-label(for=id)= label
     .controls
-      input(type=options.type, id=id, name=id, value=value, class=options.readonly ? null : 'required', readonly=options.readonly)
+      if options.type == 'textarea'
+        textarea(id=id, name=id, class=options.readonly ? null : 'required', readonly=options.readonly, rows=options.rows, cols=options.cols) #{value}
+      else
+        input(type=options.type, id=id, name=id, value=value, class=options.readonly ? null : 'required', readonly=options.readonly)
       if options.help
         p.help-block= options.help

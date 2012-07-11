@@ -13,23 +13,22 @@ module.exports =
         res.render 'login', error: 'Invalid username or password.'
       else
         req.session.is_logged_in = true
-        console.log body
-        res.redirect '/issue'
+        res.redirect '/search'
 
-  show_issue_dialog: (req, res, next) ->
-    res.render 'issue'
+  show_search_dialog: (req, res, next) ->
+    res.render 'search'
 
   get_issue_details: (req, res, next) ->
-    jira_api.get_issue_details req.body.id, (err, details)->
+    jira_api.get_issue_details req.body.key, (err, details)->
       if err?
         console.log err
-        res.render 'issue', error: err.msg.errorMessages[0]
+        res.render 'search', error: err.msg.errorMessages[0]
       else
         console.log JSON.stringify details
         res.render 'details', { details }
 
   get_issue_list: (req, res, next) ->
-    console.log req
+    console.log "get_issue_list: #{req.body.id}"
     jira_api.get_issue_list req.body.id, (err, list) ->
       if err?
         console.log err
