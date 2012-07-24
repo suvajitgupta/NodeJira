@@ -2,7 +2,7 @@ CONFIG = require './config'
 request = require 'request'
 
 module.exports =
-  authenticate: (username, password, cb)->
+  login: (username, password, cb)->
     request_options =
       url: CONFIG.authentication_url
       method: 'POST'

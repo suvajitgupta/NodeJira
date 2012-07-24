@@ -5,8 +5,8 @@ module.exports =
   show_login_dialog: (req, res, next) ->
     res.render 'login'
 
-  authenticate: (req, res, next) ->
-    jira_api.authenticate req.body.username, req.body.password, (err, body)->
+  login: (req, res, next) ->
+    jira_api.login req.body.username, req.body.password, (err, body)->
       if err?
         console.log err
         res.render 'login', error: 'Invalid username or password'
