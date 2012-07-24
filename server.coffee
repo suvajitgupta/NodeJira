@@ -18,7 +18,7 @@ app.use express.static "#{__dirname}/public"
 
 # setup defaults
 app.helpers
-  title: "NodeJira Console"
+  title: "NodeJira"
 
 middleware =
   must_be_logged_in: (req, res, next) ->
